@@ -1,0 +1,8 @@
+# Robots.txt for MaidConnect Pakistan
+# Allows search engine crawlers to index all public pages
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://maidconnect1.netlify.app/sitemap.xml

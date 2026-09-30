@@ -1,0 +1,6 @@
+{
+  "name": "MaidConnect – Verified Maids, Cooks & Domestic Helpers in Pakistan",
+  "description": "Find trusted, verified domestic workers in Pakistan. Hire reliable maids, experienced cooks, caring babysitters, and senior caretakers with CNIC checks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

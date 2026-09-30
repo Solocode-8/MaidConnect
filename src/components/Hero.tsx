@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Search, Shield, MapPin, Users, CheckCircle2, ArrowRight } from 'lucide-react';
 import { CITIES_LIST, ROLES_LIST } from '../data/mockData';
-import heroImg from '../assets/images/hero_home_care_1790605792316.jpg';
 
 interface HeroProps {
   onSearch: (city: string, role: string) => void;
@@ -37,7 +36,7 @@ export default function Hero({ onSearch, onOpenBooking, onOpenWorkerRegister }: 
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] font-display text-balance">
-                Reliable Domestic Help & Verified Maids in Pakistan
+                Reliable Help, Right at Your Doorstep
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed">
@@ -132,7 +131,7 @@ export default function Hero({ onSearch, onOpenBooking, onOpenWorkerRegister }: 
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-100 group">
               <img
-                src={heroImg || '/hero_home_care.jpg'}
+                src={`${import.meta.env.BASE_URL || './'}hero_home_care.jpg`}
                 alt="Bright modern Pakistani home living space representing comfort and reliable domestic assistance - MaidConnect"
                 fetchPriority="high"
                 loading="eager"
@@ -140,7 +139,10 @@ export default function Hero({ onSearch, onOpenBooking, onOpenWorkerRegister }: 
                 width={600}
                 height={460}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/hero_home_care.jpg';
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.endsWith('/images/hero_home_care.jpg')) {
+                    target.src = `${import.meta.env.BASE_URL || './'}images/hero_home_care.jpg`;
+                  }
                 }}
                 className="w-full h-80 sm:h-96 lg:h-[460px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -152,13 +154,10 @@ export default function Hero({ onSearch, onOpenBooking, onOpenWorkerRegister }: 
               <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-white/40 shadow-lg">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="text-xs font-bold text-blue-600 tracking-wide uppercase">
-                      Safety & Verification First
-                    </div>
-                    <div className="text-sm font-bold text-slate-900 mt-0.5">
+                    <div className="text-sm sm:text-base font-bold text-slate-900">
                       4,500+ Verified Domestic Profiles
                     </div>
-                    <p className="text-xs text-slate-600 mt-1">
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                       Every maid, cook, and caregiver is ID-verified with address validation before connecting.
                     </p>
                   </div>

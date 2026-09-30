@@ -1,7 +1,9 @@
-import houseCleaningImg from '../assets/images/service_house_cleaning_1790605811434.jpg';
-import cookingChefImg from '../assets/images/service_cooking_chef_1790605831555.jpg';
-import childcareNannyImg from '../assets/images/service_childcare_nanny_1790605844151.jpg';
-import elderlyCareImg from '../assets/images/service_elderly_care_1790605860780.jpg';
+const getImagePath = (path: string): string => {
+  const base = import.meta.env.BASE_URL || './';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
 
 export interface WorkerProfile {
   id: string;
@@ -38,7 +40,7 @@ export const SERVICE_ROLES: ServiceRole[] = [
     id: 'house-cleaning',
     title: 'House Cleaning',
     tagline: 'Spotless living spaces, daily hygiene & laundry care',
-    image: houseCleaningImg,
+    image: getImagePath('images/service_house_cleaning.jpg'),
     description: 'Thorough dusting, floor scrubbing, deep bathroom sanitization, dishwashing, and organized garment ironing for stress-free homes.',
     typicalTasks: ['Sweeping & wet mopping with disinfectant', 'Kitchen & grease cleanup', 'Washroom sanitization', 'Ironing & laundry organization'],
     avgSalaryRangePKR: 'Rs. 22,000 – 35,000 / month',
@@ -48,7 +50,7 @@ export const SERVICE_ROLES: ServiceRole[] = [
     id: 'cooking-kitchen',
     title: 'Cooking & Kitchen Support',
     tagline: 'Wholesome, home-style Pakistani & continental meals',
-    image: cookingChefImg,
+    image: getImagePath('images/service_cooking_chef.jpg'),
     description: 'Skilled traditional home cooks trained in hygienic food prep, making fresh rotis, daal, curries, biryani, and customized dietary meals.',
     typicalTasks: ['Fresh rotis & naan preparation', 'Daily lunch & dinner cooking', 'Pantry & vegetable prep', 'Dietary & low-spice adjustments for elders'],
     avgSalaryRangePKR: 'Rs. 25,000 – 45,000 / month',
@@ -58,7 +60,7 @@ export const SERVICE_ROLES: ServiceRole[] = [
     id: 'babysitting',
     title: 'Babysitting & Childcare',
     tagline: 'Gentle, attentive nannies prioritizing infant safety & care',
-    image: childcareNannyImg,
+    image: getImagePath('images/service_childcare_nanny.jpg'),
     description: 'Patient, vetted caregivers trained in toddler stimulation, feeding routines, safety supervision, and school readiness support.',
     typicalTasks: ['Nutritious feeding & formula preparation', 'Nap schedules & hygiene routines', 'Interactive play & bedtime stories', 'School pickup & drop assistance'],
     avgSalaryRangePKR: 'Rs. 28,000 – 48,000 / month',
@@ -68,7 +70,7 @@ export const SERVICE_ROLES: ServiceRole[] = [
     id: 'elderly-care',
     title: 'Elderly Care & Caretaking',
     tagline: 'Compassionate assistance, mobility support & companionship',
-    image: elderlyCareImg,
+    image: getImagePath('images/service_elderly_care.jpg'),
     description: 'Respectful, patient attendants assisting seniors with daily mobility, timely medicine reminders, companion walks, and personal grooming.',
     typicalTasks: ['Medication timing & vital signs check', 'Wheelchair & walking assistance', 'Assisted bathing & dressing', 'Warm emotional companionship'],
     avgSalaryRangePKR: 'Rs. 30,000 – 55,000 / month',
@@ -78,7 +80,7 @@ export const SERVICE_ROLES: ServiceRole[] = [
     id: 'deep-cleaning-hourly',
     title: 'Hourly & Deep Cleaning',
     tagline: 'On-demand 2–4 hr visits, deep washroom & kitchen descaling',
-    image: houseCleaningImg,
+    image: getImagePath('images/service_house_cleaning.jpg'),
     description: 'Flexible, prompt domestic help for specific hours or comprehensive deep cleaning without requiring a permanent monthly contract.',
     typicalTasks: ['Window tracks & ceiling fans dusting', 'Bathroom tile & limescale descaling', 'Grease removal on kitchen cabinets & stove', 'Post-renovation & move-in deep scrubbing'],
     avgSalaryRangePKR: 'Rs. 800 – 1,200 / hour (or tailored visit)',
